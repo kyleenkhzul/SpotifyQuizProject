@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".EndScreen">
 
+    <TextView
+        android:id="@+id/congratulations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player X has the most points. Congratulations!"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="315dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

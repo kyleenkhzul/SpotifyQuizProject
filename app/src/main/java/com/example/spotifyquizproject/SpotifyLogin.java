@@ -2,6 +2,7 @@ package com.example.spotifyquizproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 public class SpotifyLogin extends AppCompatActivity {
@@ -11,4 +12,6 @@ public class SpotifyLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spotify_login);
     }
+
+    Intent intent = new Intent(SpotifyLogin.this, PlayQuiz.class);
 }
