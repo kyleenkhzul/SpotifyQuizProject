@@ -11,7 +11,10 @@ public class SpotifyLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spotify_login);
+
+        Intent intent = new Intent(SpotifyLogin.this, ImportURL.class);
+        startActivity(intent);
     }
 
-    Intent intent = new Intent(SpotifyLogin.this, PlayQuiz.class);
+
 }
