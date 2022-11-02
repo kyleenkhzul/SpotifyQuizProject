@@ -17,4 +17,7 @@
     <color name="gray">#424242</color>
     <color name="gray_dark">#1b1b1b</color>
     <color name="gray_light">#6d6d6d</color>
+
+    <color name="blue_button">#06A0B5</color>
+    <color name="blue_app_color">#13A7AD</color>
 </resources>
