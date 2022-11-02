@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void connected() {
         // Play a playlist
-        mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:37i9dQZF1DX2sUQwD7tbmL");
+        mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:7bOnm0JmrnAhQ6GkyJBx8N?si=dcd5b28fe7374a1d");
 
         // Subscribe to PlayerState
         mSpotifyAppRemote.getPlayerApi()
