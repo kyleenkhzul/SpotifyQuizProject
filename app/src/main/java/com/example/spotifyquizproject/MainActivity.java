@@ -12,6 +12,8 @@ import android.os.Bundle;
 
 
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 
 import com.spotify.android.appremote.api.ConnectionParams;
 import com.spotify.android.appremote.api.Connector;
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("MainActivity", "Connected! Yay!");
 
                         // Now you can start interacting with App Remote
-                        connected();
+                        //connected();
 
                     }
 
@@ -70,9 +72,9 @@ public class MainActivity extends AppCompatActivity {
         SpotifyAppRemote.disconnect(mSpotifyAppRemote);
     }
 
-    private void connected() {
+    private void connected(String uri) {
         // Play a playlist
-        mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:7bOnm0JmrnAhQ6GkyJBx8N?si=dcd5b28fe7374a1d");
+        mSpotifyAppRemote.getPlayerApi().play(uri);
 
         // Subscribe to PlayerState
         mSpotifyAppRemote.getPlayerApi()
@@ -84,4 +86,15 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
+
+
+    public void playPlaylist(){
+        EditText editText = findViewById(R.id.playlistLink);
+
+        String uri = editText.getText().toString();
+        connected(uri);
+
+    }
+
 }
