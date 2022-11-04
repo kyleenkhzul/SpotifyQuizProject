@@ -9,8 +9,7 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="195dp"
-        android:layout_height="286dp"
+        style="@style/ImageViewStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,9 +17,7 @@
 
     <Button
         android:id="@+id/playButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        style="@style/ButtonStyleTwo"
         android:text="Play Quiz"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

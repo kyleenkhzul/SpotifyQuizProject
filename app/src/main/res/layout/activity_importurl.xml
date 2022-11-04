@@ -7,37 +7,28 @@
     tools:context=".ImportURL"
 >
 
-
-
-
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="207dp"
-        android:layout_height="190dp"
-        android:layout_marginTop="16dp"
+        style="@style/ImageViewStyle"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <EditText
         android:id="@+id/playlistLink"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="380dp"
+        style="@style/EditTextStyle"
         android:hint="https://"
-        android:backgroundTint="@color/white"
-        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.391" />
 
     <Button
         android:id="@+id/importPlaylist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ButtonStyleOne"
         android:layout_marginEnd="120dp"
         android:layout_marginBottom="308dp"
         android:text="Import Playlist"
