@@ -9,40 +9,33 @@
 
     <Button
         android:id="@+id/endButton"
-        style="@style/ButtonStyleTwo"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        style="@style/ButtonStyleSmall"
         android:text="End Game"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/points1"
-        style="@style/TextViewStyle"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        style="@style/TextViewStyleSmall"
         android:text="Points:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/points2"
-        style="@style/TextViewStyle"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
+        style="@style/TextViewStyleSmall"
         android:text="Points:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/guessButton"
-        android:layout_width="122dp"
-        android:layout_height="124dp"
+        style="@style/RoundButtonStyle"
         android:background="@drawable/round_button"
         android:text="Guess"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
     />
 </androidx.constraintlayout.widget.ConstraintLayout>

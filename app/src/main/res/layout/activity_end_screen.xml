@@ -8,9 +8,7 @@
 
     <TextView
         android:id="@+id/congratulations"
-        style="@style/TextViewStyle"
-        android:layout_width="297dp"
-        android:layout_height="110dp"
+        style="@style/TextViewStyleCongratulations"
         android:backgroundTint="@color/blue_button"
         android:gravity="center"
         android:text="Congratulations! Player X has the most points with a total of x points! Thanks for playing!"
@@ -23,11 +21,8 @@
 
     <Button
         android:id="@+id/backToStartBtn"
-        style="@style/TextViewStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ButtonStyleBig"
         android:text="Back to Start"
-        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
