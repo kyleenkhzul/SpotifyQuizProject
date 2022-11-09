@@ -28,7 +28,7 @@
     <Button
         android:id="@+id/importPlaylist"
         style="@style/ButtonStyleBig"
-        android:onClick="playPlaylist"
+        android:onClick="switchScreens1"
         android:text="Import Playlist"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
