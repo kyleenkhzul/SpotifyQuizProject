@@ -16,8 +16,6 @@ public class PlayQuiz extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         text = bundle.getString("inputText");
-
-
     }
 
 
@@ -25,7 +23,6 @@ public class PlayQuiz extends AppCompatActivity {
         Intent intent = new Intent(this, GameScreen.class);
         intent.putExtra("uriText", text);
         startActivity(intent);
-
     }
 
 

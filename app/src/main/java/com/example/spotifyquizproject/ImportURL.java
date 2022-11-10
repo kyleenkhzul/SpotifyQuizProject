@@ -23,8 +23,6 @@ public class ImportURL extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_importurl);
-
-
     }
 
     @Override
@@ -63,41 +61,6 @@ public class ImportURL extends AppCompatActivity {
         super.onStop();
         SpotifyAppRemote.disconnect(mSpotifyAppRemote);
     }
-
-//    private void connected(String uri) {
-//        // Play a playlist
-//        mSpotifyAppRemote.getPlayerApi().play(uri);
-//
-//        // Subscribe to PlayerState
-//        mSpotifyAppRemote.getPlayerApi()
-//                .subscribeToPlayerState()
-//                .setEventCallback(playerState -> {
-//                    final Track track = playerState.track;
-//                    if (track != null) {
-//                        Log.d("MainActivity", track.name + " by " + track.artist.name);
-//                    }
-//                });
-//    }
-
-
-
-    public void sendText(View view){
-
-//        EditText editText = findViewById(R.id.playlistLink);
-//        String text = editText.getText().toString();
-//        String playlist = "playlist";
-//
-//        int index = text.indexOf("playlist");
-//        int a = playlist.length() + index + 1;
-//        String uri = "spotify:playlist:" + text.substring(a);
-//
-//
-//        Intent intentText = new Intent(this, GameScreen.class);
-//        intentText.putExtra("inputText", uri);
-//        startActivity(intentText);
-
-    }
-
 
     public void switchScreens1(View view){
 
