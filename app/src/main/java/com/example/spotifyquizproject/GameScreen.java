@@ -76,8 +76,7 @@ public class GameScreen extends AppCompatActivity {
     private void connected(String uri) {
         // Play a playlist
         mSpotifyAppRemote.getPlayerApi().play(uri);
-
-        // Subscribe to PlayerState
+        
         mSpotifyAppRemote.getPlayerApi()
                 .subscribeToPlayerState()
                 .setEventCallback(playerState -> {
