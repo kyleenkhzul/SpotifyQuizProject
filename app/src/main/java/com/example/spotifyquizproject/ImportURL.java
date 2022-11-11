@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.spotify.android.appremote.api.ConnectionParams;
 import com.spotify.android.appremote.api.Connector;
@@ -18,6 +19,7 @@ public class ImportURL extends AppCompatActivity {
     private static final String CLIENT_ID = "0b6a257c37744cfabe83c6949f68019f";
     private static final String REDIRECT_URI = "http://localhost:8888/callback";
     private SpotifyAppRemote mSpotifyAppRemote;
+    public static String spotURL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,21 +65,28 @@ public class ImportURL extends AppCompatActivity {
     }
 
     public void switchScreens1(View view){
-
         EditText editText = findViewById(R.id.playlistLink);
-        String text = editText.getText().toString();
-        String playlist = "playlist";
+        Log.d("Praneet", "switchScreens1: " + editText.getText().toString());
+        if(editText.getText().toString().equals("")) {
+            toastClicked();
+        }
+        else {
+            String text = editText.getText().toString();
+            String playlist = "playlist";
 
-        int index = text.indexOf("playlist");
-        int a = playlist.length() + index + 1;
-        String uri = "spotify:playlist:" + text.substring(a);
+            int index = text.indexOf("playlist");
+            int a = playlist.length() + index + 1;
+            String uri = "spotify:playlist:" + text.substring(a);
 
+            Intent intent = new Intent(this, PlayQuiz.class);
+            intent.putExtra("inputText", uri);
+            startActivity(intent);
+        }
+    }
 
-        Intent intent = new Intent(this, PlayQuiz.class);
-        intent.putExtra("inputText", uri);
-        startActivity(intent);
-
-
-
+    public void toastClicked() {
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Input Spotify Playlist URL", Toast.LENGTH_SHORT);
+        toast.show();
     }
 }
