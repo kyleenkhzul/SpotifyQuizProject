@@ -4,32 +4,24 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.spotify.android.appremote.api.ConnectionParams;
 import com.spotify.android.appremote.api.Connector;
 import com.spotify.android.appremote.api.SpotifyAppRemote;
 import com.spotify.protocol.types.Track;
 
-public class SpotifyHelper {
+public class SpotifyHelper extends AppCompatActivity {
 
     private static final String CLIENT_ID = "0b6a257c37744cfabe83c6949f68019f";
     private static final String REDIRECT_URI = "http://localhost:8888/callback";
     private SpotifyAppRemote mSpotifyAppRemote;
 
-    private int songsPlayed;
-    //might have to add another class to properly implement the arraylist, which is going to tell us which songs have and haven't been played
-    //private ArrayList<int>
+/*
 
 
 
-    //Use this as reference when making the helper
-    /*
-    private void randomSongSelecter(){
 
-    }
-    */
-     
-
-    /*
     @Override
     protected void onStart() {
         super.onStart();
@@ -81,8 +73,14 @@ public class SpotifyHelper {
                     }
                 });
     }
-    */
 
+    public void connect(){
+        connected(spotURL);
+    }
 
+    public void shuffle(){
 
+    }
+
+*/
 }
