@@ -76,10 +76,12 @@ public class ImportURL extends AppCompatActivity {
 
             int index = text.indexOf("playlist");
             int a = playlist.length() + index + 1;
-            String uri = "spotify:playlist:" + text.substring(a);
+            //Changed that from string url to spotURL
+            spotURL = "spotify:playlist:" + text.substring(a);
 
             Intent intent = new Intent(this, PlayQuiz.class);
-            intent.putExtra("inputText", uri);
+            //Changed that from string url to spotURL
+            intent.putExtra("inputText", spotURL);
             startActivity(intent);
         }
     }

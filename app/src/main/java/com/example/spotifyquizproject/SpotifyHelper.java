@@ -17,7 +17,6 @@ public class SpotifyHelper extends AppCompatActivity {
     private static final String REDIRECT_URI = "http://localhost:8888/callback";
     private SpotifyAppRemote mSpotifyAppRemote;
 
-/*
 
 
 
@@ -82,5 +81,5 @@ public class SpotifyHelper extends AppCompatActivity {
 
     }
 
-*/
+
 }
