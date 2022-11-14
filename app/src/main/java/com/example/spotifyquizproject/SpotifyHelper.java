@@ -1,5 +1,7 @@
 package com.example.spotifyquizproject;
 
+import static com.example.spotifyquizproject.ImportURL.spotURL;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
@@ -16,6 +18,7 @@ public class SpotifyHelper extends AppCompatActivity {
     private static final String CLIENT_ID = "0b6a257c37744cfabe83c6949f68019f";
     private static final String REDIRECT_URI = "http://localhost:8888/callback";
     private SpotifyAppRemote mSpotifyAppRemote;
+    private boolean isPaused = false;
 
 
 
@@ -60,6 +63,7 @@ public class SpotifyHelper extends AppCompatActivity {
 
     private void connected(String uri) {
         // Play a playlist
+        mSpotifyAppRemote.getPlayerApi().setShuffle(true);
         mSpotifyAppRemote.getPlayerApi().play(uri);
 
         // Subscribe to PlayerState
@@ -77,7 +81,24 @@ public class SpotifyHelper extends AppCompatActivity {
         connected(spotURL);
     }
 
-    public void shuffle(){
+    public void pause(){
+        if(!isPaused){
+            mSpotifyAppRemote.getPlayerApi().pause();
+            isPaused = true;
+        } else if (isPaused){
+            mSpotifyAppRemote.getPlayerApi().resume();
+            isPaused = false;
+        }
+    }
+
+    public void skip(){
+        mSpotifyAppRemote.getPlayerApi().skipNext();
+    }
+
+
+    //This method requires an overhaul with points, names, etc. or another helper method to get those
+    public void endGame(){
+        onStop();
 
     }
 
