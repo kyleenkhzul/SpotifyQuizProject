@@ -19,6 +19,7 @@ public class GameScreen extends AppCompatActivity {
     private static final String REDIRECT_URI = "http://localhost:8888/callback";
     private SpotifyAppRemote mSpotifyAppRemote;
     private String uriText;
+    private boolean isPaused = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +76,7 @@ public class GameScreen extends AppCompatActivity {
 
     private void connected(String uri) {
         // Play a playlist
+        mSpotifyAppRemote.getPlayerApi().setShuffle(true);
         mSpotifyAppRemote.getPlayerApi().play(uri);
         
         mSpotifyAppRemote.getPlayerApi()
@@ -93,6 +95,21 @@ public class GameScreen extends AppCompatActivity {
 
     }
 
+    public void pause(View view){
+        if (!isPaused){
+            mSpotifyAppRemote.getPlayerApi().pause();
+            isPaused = true;
+        } else {
+            mSpotifyAppRemote.getPlayerApi().resume();
+            isPaused = false;
+        }
+
+    }
+
+    public void skipSong(View view){
+        mSpotifyAppRemote.getPlayerApi().skipNext();
+
+    }
 
 
 }
