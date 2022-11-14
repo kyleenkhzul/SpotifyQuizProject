@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/welcome"
-        android:text="Welcome to our app!"
+        android:text="Welcome to Audizzy"
         style="@style/TextViewStyleBig"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,5 +27,13 @@
         app:layout_constraintTop_toBottomOf="@+id/welcome"
         app:layout_constraintVertical_bias="0.096" />
 
-
+    <ImageView
+        android:id="@+id/imageView"
+        style="@style/ImageViewStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.927"
+        app:srcCompat="@drawable/logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

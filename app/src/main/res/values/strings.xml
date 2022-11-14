@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SpotifyQuizProject</string>
+    <string name="points">Points:</string>
+    <string name="initial_points">0</string>
 </resources>
