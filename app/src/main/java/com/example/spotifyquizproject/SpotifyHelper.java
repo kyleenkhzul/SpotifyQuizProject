@@ -97,9 +97,9 @@ public class SpotifyHelper extends AppCompatActivity {
 
 
     //This method requires an overhaul with points, names, etc. or another helper method to get those
+    //It might also need none of these, just double check as this is a potential point of failure
     public void endGame(){
         onStop();
-
     }
 
 
