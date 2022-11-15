@@ -70,6 +70,7 @@ public class ImportURL extends AppCompatActivity {
         if(editText.getText().toString().equals("")) {
             toastClicked();
         }
+
         else {
             String text = editText.getText().toString();
             String playlist = "playlist";

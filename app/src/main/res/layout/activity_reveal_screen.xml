@@ -22,24 +22,48 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/playerOneButton"
-        style="@style/ButtonStyleBig"
-        android:text="Add Point Player 1"
-        app:layout_constraintBottom_toTopOf="@+id/playerTwoButton"
+        android:id="@+id/playerOneIncrement"
+        style="@style/ButtonStyleSmall"
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@+id/songReveal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.292"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.16" />
+        app:layout_constraintTop_toBottomOf="@+id/PlayerOne"
+        app:layout_constraintVertical_bias="0.171" />
 
     <Button
-        android:id="@+id/playerTwoButton"
-        style="@style/ButtonStyleBig"
-        android:text="Add Point Player 2"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/playerOneDecrement"
+        style="@style/ButtonStyleSmall"
+        android:text="-"
+        app:layout_constraintBottom_toTopOf="@+id/songReveal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.778"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.874" />
+        app:layout_constraintTop_toBottomOf="@+id/PlayerOne"
+        app:layout_constraintVertical_bias="0.169" />
+
+    <Button
+        android:id="@+id/playerTwoIncrement"
+        style="@style/ButtonStyleSmall"
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@+id/PlayerTwo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.707"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/songReveal"
+        app:layout_constraintVertical_bias="0.712" />
+
+    <Button
+        android:id="@+id/playerTwoDecrement"
+        style="@style/ButtonStyleSmall"
+        android:text="-"
+        app:layout_constraintBottom_toTopOf="@+id/PlayerTwo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/songReveal"
+        app:layout_constraintVertical_bias="0.722" />
 
     <ImageView
         android:id="@+id/songReveal"
@@ -47,10 +71,31 @@
         android:contentDescription="reveal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.447"
+        app:layout_constraintVertical_bias="0.498"
         app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/PlayerOne"
+        style="@style/TextViewStyleBig"
+        android:text="Player 1 Points"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/PlayerTwo"
+        style="@style/TextViewStyleBig"
+        android:text="Player 2 Points"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.995" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

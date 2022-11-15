@@ -73,7 +73,6 @@ public class GameScreen extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), RevealScreen.class));
     }
 
-
     private void connected(String uri) {
         // Play a playlist
         mSpotifyAppRemote.getPlayerApi().setShuffle(true);
@@ -89,10 +88,8 @@ public class GameScreen extends AppCompatActivity {
                 });
     }
 
-
     public void playPlaylist(View view){
         connected(uriText);
-
     }
 
     public void pause(View view){
@@ -103,12 +100,10 @@ public class GameScreen extends AppCompatActivity {
             mSpotifyAppRemote.getPlayerApi().resume();
             isPaused = false;
         }
-
     }
 
     public void skipSong(View view){
         mSpotifyAppRemote.getPlayerApi().skipNext();
-
     }
 
 
