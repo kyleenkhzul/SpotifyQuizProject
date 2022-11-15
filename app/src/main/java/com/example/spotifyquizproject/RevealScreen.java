@@ -7,6 +7,9 @@ import android.os.Bundle;
 
 public class RevealScreen extends AppCompatActivity {
 
+    private static int playerOnePoints;
+    private static int playerTwoPoints;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,4 +21,10 @@ public class RevealScreen extends AppCompatActivity {
         Intent intent2 = new Intent(RevealScreen.this, EndScreen.class);
         startActivity(intent2);
     }
+
+    public void updatePlayerOne(){
+        playerOnePoints++;
+    }
+
+
 }
