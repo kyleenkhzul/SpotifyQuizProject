@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 public class RevealScreen extends AppCompatActivity {
 
-    private static int playerOnePoints;
-    private static int playerTwoPoints;
+    public static int playerOnePoints;
+    public static int playerTwoPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,11 @@ public class RevealScreen extends AppCompatActivity {
 
 
     public void switchBackToGame(View view){
-        startActivity(new Intent(getApplicationContext(), GameScreen.class));
+        Intent intent = new Intent(this, GameScreen.class);
+        //Changed that from string url to spotURL
+        intent.putExtra("newOnePoints", playerOnePoints);
+        intent.putExtra("newTwoPoints", playerTwoPoints);
+        startActivity(intent);
     }
 
     public void switchToEnd(View view){

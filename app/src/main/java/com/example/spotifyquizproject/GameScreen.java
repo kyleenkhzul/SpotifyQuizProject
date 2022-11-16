@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.spotify.android.appremote.api.ConnectionParams;
 import com.spotify.android.appremote.api.Connector;
@@ -20,6 +21,8 @@ public class GameScreen extends AppCompatActivity {
     private SpotifyAppRemote mSpotifyAppRemote;
     private String uriText;
     private boolean isPaused = false;
+    private static  int playerOnePoints;
+    private static  int playerTwoPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,9 @@ public class GameScreen extends AppCompatActivity {
         setContentView(R.layout.activity_game_screen);
         Bundle bundle = getIntent().getExtras();
         uriText = bundle.getString("uriText");
+        playerOnePoints = bundle.getInt("newOnePoints");
+        playerTwoPoints = bundle.getInt("newTwoPoints");
+
     }
 
     @Override
@@ -98,5 +104,15 @@ public class GameScreen extends AppCompatActivity {
 
     public void skipSong(View view){
         mSpotifyAppRemote.getPlayerApi().skipNext();
+    }
+
+    public void updatePointsOne(){
+        TextView textView = findViewById(R.id.points1);
+        textView.setText(Integer.toString(playerOnePoints));
+    }
+
+    public void updatePointsTwo(){
+        TextView textView = findViewById(R.id.points2);
+        textView.setText(Integer.toString(playerTwoPoints));
     }
 }
