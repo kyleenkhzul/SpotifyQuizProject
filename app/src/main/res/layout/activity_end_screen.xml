@@ -20,6 +20,7 @@
         android:id="@+id/backToStartBtn"
         style="@style/ButtonStyleBig"
         android:text="Back to Start"
+        android:onClick="switchToStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

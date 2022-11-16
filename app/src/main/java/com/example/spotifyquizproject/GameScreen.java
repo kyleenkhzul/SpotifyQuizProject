@@ -27,9 +27,6 @@ public class GameScreen extends AppCompatActivity {
         setContentView(R.layout.activity_game_screen);
         Bundle bundle = getIntent().getExtras();
         uriText = bundle.getString("uriText");
-
-
-
     }
 
     @Override
@@ -40,10 +37,8 @@ public class GameScreen extends AppCompatActivity {
                         .setRedirectUri(REDIRECT_URI)
                         .showAuthView(true)
                         .build();
-
         SpotifyAppRemote.connect(this, connectionParams,
                 new Connector.ConnectionListener() {
-
                     @Override
                     public void onConnected(SpotifyAppRemote spotifyAppRemote) {
                         mSpotifyAppRemote = spotifyAppRemote;
@@ -51,9 +46,7 @@ public class GameScreen extends AppCompatActivity {
 
                         // Now you can start interacting with App Remote
                         //connected();
-
                     }
-
                     @Override
                     public void onFailure(Throwable throwable) {
                         Log.e("MyActivity", throwable.getMessage(), throwable);
@@ -70,7 +63,8 @@ public class GameScreen extends AppCompatActivity {
     }
 
     public void switchToReveal(View view){
-        startActivity(new Intent(getApplicationContext(), RevealScreen.class));
+        Intent intent = new Intent(this, RevealScreen.class);
+        startActivity(intent);
     }
 
     private void connected(String uri) {
@@ -105,6 +99,4 @@ public class GameScreen extends AppCompatActivity {
     public void skipSong(View view){
         mSpotifyAppRemote.getPlayerApi().skipNext();
     }
-
-
 }
