@@ -10,14 +10,14 @@
     <TextView
         android:id="@+id/points1"
         style="@style/TextViewStyleSmall"
-        android:text="Points:"
+        android:text="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/points2"
         style="@style/TextViewStyleSmall"
-        android:text="Points:"
+        android:text="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -25,6 +25,7 @@
         android:id="@+id/playerOneIncrement"
         style="@style/ButtonStyleSmall"
         android:text="+"
+        android:onClick="updatePlayerOne"
         app:layout_constraintBottom_toTopOf="@+id/songReveal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.292"
@@ -36,6 +37,7 @@
         android:id="@+id/playerOneDecrement"
         style="@style/ButtonStyleSmall"
         android:text="-"
+        android:onClick="updatePlayerOne"
         app:layout_constraintBottom_toTopOf="@+id/songReveal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.778"
@@ -47,6 +49,7 @@
         android:id="@+id/playerTwoIncrement"
         style="@style/ButtonStyleSmall"
         android:text="+"
+        android:onClick="updatePlayerTwo"
         app:layout_constraintBottom_toTopOf="@+id/PlayerTwo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.707"
@@ -58,6 +61,7 @@
         android:id="@+id/playerTwoDecrement"
         style="@style/ButtonStyleSmall"
         android:text="-"
+        android:onClick="updatePlayerTwo"
         app:layout_constraintBottom_toTopOf="@+id/PlayerTwo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.266"
