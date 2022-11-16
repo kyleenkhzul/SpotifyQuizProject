@@ -21,7 +21,8 @@ public class SpotifyHelper extends AppCompatActivity {
     private boolean isPaused = false;
 
 
-
+    private static int p1Points;
+    private static int p2Points;
 
 
     @Override
@@ -101,6 +102,8 @@ public class SpotifyHelper extends AppCompatActivity {
     public void endGame(){
         onStop();
     }
+
+
 
 
 }
