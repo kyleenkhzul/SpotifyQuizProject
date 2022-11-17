@@ -10,6 +10,7 @@
     <Button
         android:id="@+id/endButton"
         style="@style/ButtonStyleSmall"
+        android:onClick="switchToEnd"
         android:text="End Game"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

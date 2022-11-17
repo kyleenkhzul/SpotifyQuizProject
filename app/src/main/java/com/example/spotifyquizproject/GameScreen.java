@@ -21,8 +21,8 @@ public class GameScreen extends AppCompatActivity {
     private SpotifyAppRemote mSpotifyAppRemote;
     private String uriText;
     private boolean isPaused = false;
-    private static  int playerOnePoints;
-    private static  int playerTwoPoints;
+    private static int playerOnePoints;
+    private static int playerTwoPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +73,12 @@ public class GameScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void switchToEnd(View view) {
+        Intent intent = new Intent(this, EndScreen.class);
+        intent.putExtra(Integer.toString(playerOnePoints), (Integer.toString(playerTwoPoints)));
+        startActivity(intent);
+    }
+
     private void connected(String uri) {
         // Play a playlist
         mSpotifyAppRemote.getPlayerApi().setShuffle(true);
@@ -114,5 +120,25 @@ public class GameScreen extends AppCompatActivity {
     public void updatePointsTwo(){
         TextView textView = findViewById(R.id.points2);
         textView.setText(Integer.toString(playerTwoPoints));
+    }
+
+    public static int getPlayerOnePoints() {
+        return playerOnePoints;
+    }
+
+    public static int getPlayerTwoPoints() {
+        return playerTwoPoints;
+    }
+
+    public static String compareValues(int playerOnePoints, int playerTwoPoints) {
+        if(playerOnePoints > playerTwoPoints) {
+            return "Player One";
+        }
+        else if(playerOnePoints == playerTwoPoints) {
+            return "Tie";
+        }
+        else {
+            return "Player Two";
+        }
     }
 }

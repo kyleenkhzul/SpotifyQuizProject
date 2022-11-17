@@ -7,11 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 
 public class EndScreen extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_screen);
+        GameScreen.compareValues(GameScreen.getPlayerOnePoints(), GameScreen.getPlayerTwoPoints());
     }
 
     public void switchToStart(View view){

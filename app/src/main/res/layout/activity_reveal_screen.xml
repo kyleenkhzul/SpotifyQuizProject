@@ -75,7 +75,6 @@
         android:contentDescription="reveal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.498"
@@ -103,10 +102,7 @@
 
     <Button
         android:id="@+id/backToGame"
-        android:layout_width="94dp"
-        android:layout_height="41dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="32dp"
+        style="@style/ButtonStyleSmall"
         android:onClick="switchBackToGame"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
