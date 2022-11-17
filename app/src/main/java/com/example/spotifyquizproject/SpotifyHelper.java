@@ -23,7 +23,12 @@ public class SpotifyHelper extends AppCompatActivity {
 
     private static int p1Points;
     private static int p2Points;
+    private int points;
 
+
+    public SpotifyHelper(){
+
+    }
 
     @Override
     protected void onStart() {
@@ -102,7 +107,6 @@ public class SpotifyHelper extends AppCompatActivity {
     public void endGame(){
         onStop();
     }
-
 
 
 
