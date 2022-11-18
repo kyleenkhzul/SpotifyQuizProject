@@ -16,9 +16,7 @@ import com.spotify.protocol.types.Track;
 
 public class GameScreen extends AppCompatActivity {
 
-    private static final String CLIENT_ID = "0b6a257c37744cfabe83c6949f68019f";
-    private static final String REDIRECT_URI = "http://localhost:8888/callback";
-    private SpotifyAppRemote mSpotifyAppRemote;
+
     private String uriText;
     private boolean isPaused = false;
     private static int playerOnePoints;
@@ -33,21 +31,22 @@ public class GameScreen extends AppCompatActivity {
         playerOnePoints = bundle.getInt("newOnePoints");
         playerTwoPoints = bundle.getInt("newTwoPoints");
 
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         ConnectionParams connectionParams =
-                new ConnectionParams.Builder(CLIENT_ID)
-                        .setRedirectUri(REDIRECT_URI)
+                new ConnectionParams.Builder(MainActivity.spotifyHelper.getCLIENT_ID())
+                        .setRedirectUri(MainActivity.spotifyHelper.getREDIRECT_URI())
                         .showAuthView(true)
                         .build();
         SpotifyAppRemote.connect(this, connectionParams,
                 new Connector.ConnectionListener() {
                     @Override
                     public void onConnected(SpotifyAppRemote spotifyAppRemote) {
-                        mSpotifyAppRemote = spotifyAppRemote;
+                        MainActivity.spotifyHelper.setmSpotifyAppRemote(spotifyAppRemote);
                         Log.d("MainActivity", "Connected! Yay!");
 
                         // Now you can start interacting with App Remote
@@ -65,7 +64,7 @@ public class GameScreen extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        SpotifyAppRemote.disconnect(mSpotifyAppRemote);
+        SpotifyAppRemote.disconnect(MainActivity.spotifyHelper.getmSpotifyAppRemote());
     }
 
     public void switchToReveal(View view){
@@ -81,10 +80,10 @@ public class GameScreen extends AppCompatActivity {
 
     private void connected(String uri) {
         // Play a playlist
-        mSpotifyAppRemote.getPlayerApi().setShuffle(true);
-        mSpotifyAppRemote.getPlayerApi().play(uri);
-        
-        mSpotifyAppRemote.getPlayerApi()
+        MainActivity.spotifyHelper.getmSpotifyAppRemote().getPlayerApi().setShuffle(true);
+        MainActivity.spotifyHelper.getmSpotifyAppRemote().getPlayerApi().play(uri);
+
+        MainActivity.spotifyHelper.getmSpotifyAppRemote().getPlayerApi()
                 .subscribeToPlayerState()
                 .setEventCallback(playerState -> {
                     final Track track = playerState.track;
@@ -100,16 +99,16 @@ public class GameScreen extends AppCompatActivity {
 
     public void pause(View view){
         if (!isPaused){
-            mSpotifyAppRemote.getPlayerApi().pause();
+            MainActivity.spotifyHelper.getmSpotifyAppRemote().getPlayerApi().pause();
             isPaused = true;
         } else {
-            mSpotifyAppRemote.getPlayerApi().resume();
+            MainActivity.spotifyHelper.getmSpotifyAppRemote().getPlayerApi().resume();
             isPaused = false;
         }
     }
 
     public void skipSong(View view){
-        mSpotifyAppRemote.getPlayerApi().skipNext();
+        MainActivity.spotifyHelper.getmSpotifyAppRemote().getPlayerApi().skipNext();
     }
 
     public void updatePointsOne(){
@@ -141,4 +140,6 @@ public class GameScreen extends AppCompatActivity {
             return "Player Two";
         }
     }
+
+
 }

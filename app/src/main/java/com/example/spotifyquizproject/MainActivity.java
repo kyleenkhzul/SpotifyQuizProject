@@ -26,10 +26,12 @@ public class MainActivity extends AppCompatActivity {
     private static final String CLIENT_ID = "0b6a257c37744cfabe83c6949f68019f";
     private static final String REDIRECT_URI = "http://localhost:8888/callback";
     private SpotifyAppRemote mSpotifyAppRemote;
+    public static SpotifyHelper spotifyHelper;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        spotifyHelper = new SpotifyHelper();
     }
 
     public void changeToUrl(View view){

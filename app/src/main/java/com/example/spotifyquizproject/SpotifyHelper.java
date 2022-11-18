@@ -15,8 +15,8 @@ import com.spotify.protocol.types.Track;
 
 public class SpotifyHelper extends AppCompatActivity {
 
-    private static final String CLIENT_ID = "0b6a257c37744cfabe83c6949f68019f";
-    private static final String REDIRECT_URI = "http://localhost:8888/callback";
+    private final String CLIENT_ID;
+    private final String REDIRECT_URI;
     private SpotifyAppRemote mSpotifyAppRemote;
     private boolean isPaused = false;
 
@@ -27,7 +27,8 @@ public class SpotifyHelper extends AppCompatActivity {
 
 
     public SpotifyHelper(){
-
+        this.CLIENT_ID = "0b6a257c37744cfabe83c6949f68019f";
+        this.REDIRECT_URI = "http://localhost:8888/callback";
     }
 
     @Override
@@ -108,6 +109,19 @@ public class SpotifyHelper extends AppCompatActivity {
         onStop();
     }
 
+    public SpotifyAppRemote getmSpotifyAppRemote() {
+        return mSpotifyAppRemote;
+    }
 
+    public void setmSpotifyAppRemote(SpotifyAppRemote mSpotifyAppRemote) {
+        this.mSpotifyAppRemote = mSpotifyAppRemote;
+    }
 
+    public String getCLIENT_ID() {
+        return CLIENT_ID;
+    }
+
+    public String getREDIRECT_URI() {
+        return REDIRECT_URI;
+    }
 }
