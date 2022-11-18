@@ -10,8 +10,9 @@ import android.widget.TextView;
 
 public class RevealScreen extends AppCompatActivity {
 
-    public static int playerOnePoints;
-    public static int playerTwoPoints;
+    private TextView textView1 = findViewById(R.id.points1);
+    private TextView textView2 = findViewById(R.id.points2);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,50 +23,41 @@ public class RevealScreen extends AppCompatActivity {
     }
 
     public void updatePlayerOne(View v){
-        TextView textView = findViewById(R.id.points1);
-        playerOnePoints = Integer.parseInt(textView.getText().toString());
 
         switch(v.getId()){
             case R.id.playerOneIncrement:
-                playerOnePoints++;
+                GameScreen.playerOnePoints++;
                 break;
             case R.id.playerOneDecrement:
-                playerOnePoints--;
+                GameScreen.playerOnePoints--;
                 break;
         }
 
-        textView.setText(Integer.toString(playerOnePoints));
+        textView1.setText(Integer.toString(GameScreen.playerOnePoints));
     }
 
 
     public void updatePlayerTwo(View v){
-        TextView textView = findViewById(R.id.points2);
-        playerTwoPoints = Integer.parseInt(textView.getText().toString());
 
         switch(v.getId()){
             case R.id.playerTwoIncrement:
-                playerTwoPoints++;
+                GameScreen.playerTwoPoints++;
                 break;
             case R.id.playerTwoDecrement:
-                playerTwoPoints--;
+                GameScreen.playerTwoPoints--;
                 break;
         }
 
-        textView.setText(Integer.toString(playerTwoPoints));
+        textView2.setText(Integer.toString(GameScreen.playerTwoPoints));
     }
 
 
     public void switchBackToGame(View view){
         Intent intent = new Intent(this, GameScreen.class);
         //Changed that from string url to spotURL
-        intent.putExtra("newOnePoints", playerOnePoints);
-        intent.putExtra("newTwoPoints", playerTwoPoints);
         startActivity(intent);
     }
 
-    public void switchToEnd(View view){
-        startActivity(new Intent(getApplicationContext(), EndScreen.class));
-    }
 
 
 

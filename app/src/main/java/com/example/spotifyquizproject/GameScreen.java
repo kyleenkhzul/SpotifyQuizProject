@@ -21,8 +21,9 @@ public class GameScreen extends AppCompatActivity {
     private SpotifyAppRemote mSpotifyAppRemote;
     private String uriText;
     private boolean isPaused = false;
-    private static int playerOnePoints;
-    private static int playerTwoPoints;
+
+    public static int playerOnePoints;
+    public static int playerTwoPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +31,6 @@ public class GameScreen extends AppCompatActivity {
         setContentView(R.layout.activity_game_screen);
         Bundle bundle = getIntent().getExtras();
         uriText = bundle.getString("uriText");
-        playerOnePoints = bundle.getInt("newOnePoints");
-        playerTwoPoints = bundle.getInt("newTwoPoints");
-
     }
 
     @Override
@@ -69,6 +67,12 @@ public class GameScreen extends AppCompatActivity {
     }
 
     public void switchToReveal(View view){
+        TextView textView1 = findViewById(R.id.points1);
+        playerOnePoints = Integer.parseInt(textView1.getText().toString());
+        TextView textView2 = findViewById(R.id.points2);
+        playerTwoPoints = Integer.parseInt(textView2.getText().toString());
+
+
         Intent intent = new Intent(this, RevealScreen.class);
         startActivity(intent);
     }
