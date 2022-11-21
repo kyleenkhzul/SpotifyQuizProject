@@ -19,9 +19,6 @@ public class GameScreen extends AppCompatActivity {
 
     private boolean isPaused = false;
 
-    public static int playerOnePoints;
-    public static int playerTwoPoints;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,9 +61,9 @@ public class GameScreen extends AppCompatActivity {
 
     public void switchToReveal(View view){
         TextView textView1 = findViewById(R.id.points1);
-        playerOnePoints = Integer.parseInt(textView1.getText().toString());
+        MainActivity.spotifyHelper.setP1Points(Integer.parseInt(textView1.getText().toString()));
         TextView textView2 = findViewById(R.id.points2);
-        playerTwoPoints = Integer.parseInt(textView2.getText().toString());
+        MainActivity.spotifyHelper.setP2Points(Integer.parseInt(textView2.getText().toString()));
 
 
         Intent intent = new Intent(this, RevealScreen.class);
@@ -75,7 +72,7 @@ public class GameScreen extends AppCompatActivity {
 
     public void switchToEnd(View view) {
         Intent intent = new Intent(this, EndScreen.class);
-        intent.putExtra(Integer.toString(playerOnePoints), (Integer.toString(playerTwoPoints)));
+        intent.putExtra(Integer.toString(MainActivity.spotifyHelper.getP1Points()), (Integer.toString(MainActivity.spotifyHelper.getP2Points())));
         startActivity(intent);
     }
 
@@ -114,21 +111,14 @@ public class GameScreen extends AppCompatActivity {
 
     public void updatePointsOne(){
         TextView textView = findViewById(R.id.points1);
-        textView.setText(Integer.toString(playerOnePoints));
+        textView.setText(Integer.toString(MainActivity.spotifyHelper.getP1Points()));
     }
 
     public void updatePointsTwo(){
         TextView textView = findViewById(R.id.points2);
-        textView.setText(Integer.toString(playerTwoPoints));
+        textView.setText(Integer.toString(MainActivity.spotifyHelper.getP2Points()));
     }
 
-    public static int getPlayerOnePoints() {
-        return playerOnePoints;
-    }
-
-    public static int getPlayerTwoPoints() {
-        return playerTwoPoints;
-    }
 
     public static String compareValues(int playerOnePoints, int playerTwoPoints) {
         if(playerOnePoints > playerTwoPoints) {

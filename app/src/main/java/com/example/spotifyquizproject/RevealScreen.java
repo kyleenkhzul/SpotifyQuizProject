@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ public class RevealScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reveal_screen);
+        Log.d("points", "points" + MainActivity.spotifyHelper.getP1Points());
 
 
     }
@@ -25,14 +27,14 @@ public class RevealScreen extends AppCompatActivity {
 
         switch(v.getId()){
             case R.id.playerOneIncrement:
-                GameScreen.playerOnePoints++;
+                MainActivity.spotifyHelper.setP1Points(MainActivity.spotifyHelper.getP1Points() + 1);
                 break;
             case R.id.playerOneDecrement:
-                GameScreen.playerOnePoints--;
+                MainActivity.spotifyHelper.setP1Points(MainActivity.spotifyHelper.getP1Points() - 1);
                 break;
         }
 
-        textView1.setText(Integer.toString(GameScreen.playerOnePoints));
+        textView1.setText(Integer.toString(MainActivity.spotifyHelper.getP1Points()));
     }
 
 
@@ -42,14 +44,14 @@ public class RevealScreen extends AppCompatActivity {
 
         switch(v.getId()){
             case R.id.playerTwoIncrement:
-                GameScreen.playerTwoPoints++;
+                MainActivity.spotifyHelper.setP2Points(MainActivity.spotifyHelper.getP2Points() + 1);
                 break;
             case R.id.playerTwoDecrement:
-                GameScreen.playerTwoPoints--;
+                MainActivity.spotifyHelper.setP2Points(MainActivity.spotifyHelper.getP2Points() - 1);
                 break;
         }
 
-        textView2.setText(Integer.toString(GameScreen.playerTwoPoints));
+        textView2.setText(Integer.toString(MainActivity.spotifyHelper.getP2Points()));
     }
 
 
