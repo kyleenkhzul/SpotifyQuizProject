@@ -16,9 +16,7 @@ import com.spotify.protocol.types.Track;
 
 public class ImportURL extends AppCompatActivity {
 
-    private static final String CLIENT_ID = "0b6a257c37744cfabe83c6949f68019f";
-    private static final String REDIRECT_URI = "http://localhost:8888/callback";
-    private SpotifyAppRemote mSpotifyAppRemote;
+
     public static String spotURL;
 
     @Override
@@ -31,8 +29,8 @@ public class ImportURL extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         ConnectionParams connectionParams =
-                new ConnectionParams.Builder(CLIENT_ID)
-                        .setRedirectUri(REDIRECT_URI)
+                new ConnectionParams.Builder(MainActivity.spotifyHelper.getCLIENT_ID())
+                        .setRedirectUri(MainActivity.spotifyHelper.getREDIRECT_URI())
                         .showAuthView(true)
                         .build();
 
@@ -41,7 +39,7 @@ public class ImportURL extends AppCompatActivity {
 
                     @Override
                     public void onConnected(SpotifyAppRemote spotifyAppRemote) {
-                        mSpotifyAppRemote = spotifyAppRemote;
+                        MainActivity.spotifyHelper.setmSpotifyAppRemote(spotifyAppRemote);
                         Log.d("MainActivity", "Connected! Yay!");
 
                         // Now you can start interacting with App Remote
@@ -61,7 +59,7 @@ public class ImportURL extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        SpotifyAppRemote.disconnect(mSpotifyAppRemote);
+        SpotifyAppRemote.disconnect(MainActivity.spotifyHelper.getmSpotifyAppRemote());
     }
 
     public void switchScreens1(View view){
