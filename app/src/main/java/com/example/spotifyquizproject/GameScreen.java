@@ -19,7 +19,6 @@ public class GameScreen extends AppCompatActivity {
     private static final String CLIENT_ID = "0b6a257c37744cfabe83c6949f68019f";
     private static final String REDIRECT_URI = "http://localhost:8888/callback";
     private SpotifyAppRemote mSpotifyAppRemote;
-    private String uriText;
     private boolean isPaused = false;
 
     public static int playerOnePoints;
@@ -30,7 +29,6 @@ public class GameScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
         Bundle bundle = getIntent().getExtras();
-        uriText = bundle.getString("uriText");
     }
 
     @Override
@@ -99,7 +97,7 @@ public class GameScreen extends AppCompatActivity {
     }
 
     public void playPlaylist(View view){
-        connected(uriText);
+        connected(PlayQuiz.text);
     }
 
     public void pause(View view){

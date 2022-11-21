@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class PlayQuiz extends AppCompatActivity {
-    public String text;
+    public static String text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,6 @@ public class PlayQuiz extends AppCompatActivity {
 
     public void switchToGame(View view){
         Intent intent = new Intent(this, GameScreen.class);
-        intent.putExtra("uriText", text);
         startActivity(intent);
     }
 

@@ -10,9 +10,6 @@ import android.widget.TextView;
 
 public class RevealScreen extends AppCompatActivity {
 
-    private TextView textView1 = findViewById(R.id.points1);
-    private TextView textView2 = findViewById(R.id.points2);
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +20,8 @@ public class RevealScreen extends AppCompatActivity {
     }
 
     public void updatePlayerOne(View v){
+
+        TextView textView1 = findViewById(R.id.points1);
 
         switch(v.getId()){
             case R.id.playerOneIncrement:
@@ -38,6 +37,8 @@ public class RevealScreen extends AppCompatActivity {
 
 
     public void updatePlayerTwo(View v){
+
+        TextView textView2 = findViewById(R.id.points2);
 
         switch(v.getId()){
             case R.id.playerTwoIncrement:
