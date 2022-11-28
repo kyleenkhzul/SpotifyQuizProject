@@ -11,7 +11,7 @@ public class EndScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_screen);
-        GameScreen.compareValues(GameScreen.getPlayerOnePoints(), GameScreen.getPlayerTwoPoints());
+        GameScreen.compareValues(MainActivity.spotifyHelper.getP1Points(), MainActivity.spotifyHelper.getP1Points());
     }
 
     public void switchToStart(View view){
