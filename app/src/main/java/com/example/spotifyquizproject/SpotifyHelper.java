@@ -21,8 +21,8 @@ public class SpotifyHelper extends AppCompatActivity {
     private boolean isPaused = false;
 
 
-    private int p1Points;
-    private int p2Points;
+    private  int p1Points;
+    private  int p2Points;
     private int points;
 
 
@@ -128,19 +128,19 @@ public class SpotifyHelper extends AppCompatActivity {
         return REDIRECT_URI;
     }
 
-    public int getP1Points() {
+    public  int getP1Points() {
         return p1Points;
     }
 
-    public void setP1Points(int p1Points) {
+    public  void setP1Points(int p1Points) {
         this.p1Points = p1Points;
     }
 
-    public int getP2Points() {
+    public  int getP2Points() {
         return p2Points;
     }
 
-    public void setP2Points(int p2Points) {
+    public  void setP2Points(int p2Points) {
         this.p2Points = p2Points;
     }
 }

@@ -16,14 +16,27 @@ import com.spotify.protocol.types.Track;
 
 public class GameScreen extends AppCompatActivity {
 
-
     private boolean isPaused = false;
+    private int P1Points = 0;
+    private int P2Points = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
         Bundle bundle = getIntent().getExtras();
+
+        if(RevealScreen.count != 0){
+            P1Points = bundle.getInt("P1Points");
+            P2Points = bundle.getInt("P2Points");
+        }
+
+        TextView p1 = findViewById(R.id.points1);
+        p1.setText(Integer.toString(P1Points));
+
+        TextView p2 = findViewById(R.id.points2);
+        p2.setText(Integer.toString(P2Points));
+
     }
 
     @Override
@@ -51,6 +64,8 @@ public class GameScreen extends AppCompatActivity {
                         // Something went wrong when attempting to connect! Handle errors here
                     }
                 });
+
+
     }
 
     @Override

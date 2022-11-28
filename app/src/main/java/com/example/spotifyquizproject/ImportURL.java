@@ -29,8 +29,8 @@ public class ImportURL extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         ConnectionParams connectionParams =
-                new ConnectionParams.Builder(MainActivity.spotifyHelper.getCLIENT_ID())
-                        .setRedirectUri(MainActivity.spotifyHelper.getREDIRECT_URI())
+                new ConnectionParams.Builder("0b6a257c37744cfabe83c6949f68019f")
+                        .setRedirectUri("http://localhost:8888/callback")
                         .showAuthView(true)
                         .build();
 
