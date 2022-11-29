@@ -5,33 +5,31 @@ import static com.example.spotifyquizproject.ImportURL.spotURL;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.spotify.android.appremote.api.ConnectionParams;
 import com.spotify.android.appremote.api.Connector;
 import com.spotify.android.appremote.api.SpotifyAppRemote;
+import com.spotify.protocol.types.ImageUri;
 import com.spotify.protocol.types.Track;
+import com.spotify.protocol.types.Uri;
 
 public class SpotifyHelper extends AppCompatActivity {
-
     private final String CLIENT_ID;
     private final String REDIRECT_URI;
     private SpotifyAppRemote mSpotifyAppRemote;
     private boolean isPaused = false;
+    private ImageUri songURI;
 
-
-    private  int p1Points;
-    private  int p2Points;
+    private int p1Points;
+    private int p2Points;
     private int points;
-
-
 
     public SpotifyHelper(){
         this.CLIENT_ID = "0b6a257c37744cfabe83c6949f68019f";
         this.REDIRECT_URI = "http://localhost:8888/callback";
         this.p1Points = 0;
         this.p2Points = 0;
+        this.songURI = null;
     }
 
     @Override
@@ -53,9 +51,7 @@ public class SpotifyHelper extends AppCompatActivity {
 
                         // Now you can start interacting with App Remote
                         //connected();
-
                     }
-
                     @Override
                     public void onFailure(Throwable throwable) {
                         Log.e("MyActivity", throwable.getMessage(), throwable);
@@ -75,7 +71,6 @@ public class SpotifyHelper extends AppCompatActivity {
         // Play a playlist
         mSpotifyAppRemote.getPlayerApi().setShuffle(true);
         mSpotifyAppRemote.getPlayerApi().play(uri);
-
         // Subscribe to PlayerState
         mSpotifyAppRemote.getPlayerApi()
                 .subscribeToPlayerState()
@@ -84,6 +79,7 @@ public class SpotifyHelper extends AppCompatActivity {
                     if (track != null) {
                         Log.d("MainActivity", track.name + " by " + track.artist.name);
                     }
+                    songURI = track.imageUri; // added afterwards to create a songURI variable, can delete if breaks
                 });
     }
 
@@ -104,7 +100,6 @@ public class SpotifyHelper extends AppCompatActivity {
     public void skip(){
         mSpotifyAppRemote.getPlayerApi().skipNext();
     }
-
 
     //This method requires an overhaul with points, names, etc. or another helper method to get those
     //It might also need none of these, just double check as this is a potential point of failure
@@ -143,4 +138,14 @@ public class SpotifyHelper extends AppCompatActivity {
     public  void setP2Points(int p2Points) {
         this.p2Points = p2Points;
     }
+
+    public ImageUri getSongURI() {
+        return songURI;
+    }
+
+    public void setSongURI(ImageUri songURI) {
+        this.songURI = songURI;
+    }
 }
+
+
