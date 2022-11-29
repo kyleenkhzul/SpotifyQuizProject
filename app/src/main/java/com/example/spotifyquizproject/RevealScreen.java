@@ -32,9 +32,14 @@ public class RevealScreen extends AppCompatActivity {
 
         Log.d("points", "points" + MainActivity.spotifyHelper.getP1Points());
 
-        uri = MainActivity.spotifyHelper.getSongURI();
+
         ImageView imageView = findViewById(R.id.songReveal);
-        picasso.get().load(uri.toString()).into(imageView);
+        Log.d("name", "name: " + GameScreen.name);
+        Log.d("uri", "uri: " + GameScreen.imageUri);
+        String uri = GameScreen.imageUri.substring(GameScreen.imageUri.indexOf("{") + 1, GameScreen.imageUri.indexOf("'"));
+        Log.d("text", "text: " + uri);
+        picasso.get().load(uri).into(imageView);
+
     }
 
     public void updatePlayerOne(View v){

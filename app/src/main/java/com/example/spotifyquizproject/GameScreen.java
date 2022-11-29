@@ -19,6 +19,8 @@ public class GameScreen extends AppCompatActivity {
     private boolean isPaused = false;
     private int P1Points = 0;
     private int P2Points = 0;
+    public static String imageUri;
+    public static String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,6 @@ public class GameScreen extends AppCompatActivity {
             P1Points = bundle.getInt("P1Points");
             P2Points = bundle.getInt("P2Points");
         }
-
         TextView p1 = findViewById(R.id.points1);
         p1.setText(Integer.toString(P1Points));
 
@@ -102,7 +103,10 @@ public class GameScreen extends AppCompatActivity {
                     final Track track = playerState.track;
                     if (track != null) {
                         Log.d("MainActivity", track.name + " by " + track.artist.name);
+
                     }
+                    imageUri = track.imageUri.toString();
+                    name = track.name;
                 });
     }
 
