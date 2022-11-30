@@ -21,6 +21,8 @@ public class GameScreen extends AppCompatActivity {
     private int P2Points = 0;
     public static String imageUri;
     public static String name;
+    public static String artist;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +109,7 @@ public class GameScreen extends AppCompatActivity {
                     }
                     imageUri = track.imageUri.toString();
                     name = track.name;
+                    artist = track.artist.name;
                 });
     }
 

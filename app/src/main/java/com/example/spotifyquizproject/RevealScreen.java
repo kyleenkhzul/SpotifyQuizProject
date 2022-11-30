@@ -40,6 +40,9 @@ public class RevealScreen extends AppCompatActivity {
         Log.d("text", "text: " + uri);
         picasso.get().load(uri).into(imageView);
 
+        TextView answer = findViewById(R.id.answer);
+        answer.setText(GameScreen.name + " by " + GameScreen.artist);
+
     }
 
     public void updatePlayerOne(View v){
