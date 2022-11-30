@@ -19,6 +19,8 @@ public class SpotifyHelper extends AppCompatActivity {
     private SpotifyAppRemote mSpotifyAppRemote;
     private boolean isPaused = false;
     private ImageUri songURI;
+    private String artist;
+    private String name;
 
     private int p1Points;
     private int p2Points;
@@ -30,6 +32,8 @@ public class SpotifyHelper extends AppCompatActivity {
         this.p1Points = 0;
         this.p2Points = 0;
         this.songURI = null;
+        this.artist = "";
+        this.name = "";
     }
 
     @Override
@@ -145,6 +149,22 @@ public class SpotifyHelper extends AppCompatActivity {
 
     public void setSongURI(ImageUri songURI) {
         this.songURI = songURI;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
 

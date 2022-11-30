@@ -46,8 +46,8 @@ public class GameScreen extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         ConnectionParams connectionParams =
-                new ConnectionParams.Builder(MainActivity.spotifyHelper.getCLIENT_ID())
-                        .setRedirectUri(MainActivity.spotifyHelper.getREDIRECT_URI())
+                new ConnectionParams.Builder("0b6a257c37744cfabe83c6949f68019f")
+                        .setRedirectUri("http://localhost:8888/callback")
                         .showAuthView(true)
                         .build();
         SpotifyAppRemote.connect(this, connectionParams,
@@ -105,11 +105,12 @@ public class GameScreen extends AppCompatActivity {
                     final Track track = playerState.track;
                     if (track != null) {
                         Log.d("MainActivity", track.name + " by " + track.artist.name);
+                        imageUri = track.imageUri.toString();
+                        name = track.name;
+                        artist = track.artist.name;
 
                     }
-                    imageUri = track.imageUri.toString();
-                    name = track.name;
-                    artist = track.artist.name;
+
                 });
     }
 
