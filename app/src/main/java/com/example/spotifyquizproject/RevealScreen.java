@@ -14,8 +14,6 @@ import com.spotify.protocol.types.Track;
 import com.squareup.picasso.Picasso;
 
 public class RevealScreen extends AppCompatActivity {
-    Picasso picasso;
-    ImageUri uri;
     private static int P1Points = 0;
     private static int P2Points = 0;
     public static int count = 0;
@@ -32,13 +30,10 @@ public class RevealScreen extends AppCompatActivity {
 
         Log.d("points", "points" + MainActivity.spotifyHelper.getP1Points());
 
-
-        ImageView imageView = findViewById(R.id.songReveal);
         Log.d("name", "name: " + GameScreen.name);
         Log.d("uri", "uri: " + GameScreen.imageUri);
         String uri = GameScreen.imageUri.substring(GameScreen.imageUri.indexOf("{") + 1, GameScreen.imageUri.indexOf("'"));
         Log.d("text", "text: " + uri);
-        picasso.get().load(uri).into(imageView);
 
         TextView answer = findViewById(R.id.answer);
         answer.setText(GameScreen.name + " by " + GameScreen.artist);
@@ -84,9 +79,4 @@ public class RevealScreen extends AppCompatActivity {
         intent.putExtra("P2Points", P2Points);
         startActivity(intent);
     }
-
-
-
-
-
 }

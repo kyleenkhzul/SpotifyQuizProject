@@ -67,8 +67,6 @@ public class GameScreen extends AppCompatActivity {
                         // Something went wrong when attempting to connect! Handle errors here
                     }
                 });
-
-
     }
 
     @Override
@@ -82,7 +80,6 @@ public class GameScreen extends AppCompatActivity {
         MainActivity.spotifyHelper.setP1Points(Integer.parseInt(textView1.getText().toString()));
         TextView textView2 = findViewById(R.id.points2);
         MainActivity.spotifyHelper.setP2Points(Integer.parseInt(textView2.getText().toString()));
-
 
         Intent intent = new Intent(this, RevealScreen.class);
         startActivity(intent);
@@ -108,9 +105,7 @@ public class GameScreen extends AppCompatActivity {
                         imageUri = track.imageUri.toString();
                         name = track.name;
                         artist = track.artist.name;
-
                     }
-
                 });
     }
 
