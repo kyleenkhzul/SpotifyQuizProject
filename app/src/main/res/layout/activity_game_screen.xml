@@ -12,6 +12,7 @@
         style="@style/ButtonStyleSmall"
         android:text="End Game"
         android:onClick="switchToEnd"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

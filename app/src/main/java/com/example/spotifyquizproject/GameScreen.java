@@ -31,11 +31,11 @@ public class GameScreen extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         if(RevealScreen.count != 0){
+            connected(PlayQuiz.text);
             P1Points = bundle.getInt("P1Points");
             P2Points = bundle.getInt("P2Points");
         }
 
-        connected(PlayQuiz.text);
 
         TextView p1 = findViewById(R.id.points1);
         p1.setText(Integer.toString(P1Points));
@@ -88,11 +88,7 @@ public class GameScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void switchToEnd(View view) {
-        Intent intent = new Intent(this, EndScreen.class);
-        intent.putExtra(Integer.toString(MainActivity.spotifyHelper.getP1Points()), (Integer.toString(MainActivity.spotifyHelper.getP2Points())));
-        startActivity(intent);
-    }
+
 
     private void connected(String uri) {
         // Play a playlist
@@ -130,16 +126,6 @@ public class GameScreen extends AppCompatActivity {
         connected(PlayQuiz.text);
     }
 
-    public void updatePointsOne(){
-        TextView textView = findViewById(R.id.points1);
-        textView.setText(Integer.toString(MainActivity.spotifyHelper.getP1Points()));
-    }
-
-    public void updatePointsTwo(){
-        TextView textView = findViewById(R.id.points2);
-        textView.setText(Integer.toString(MainActivity.spotifyHelper.getP2Points()));
-    }
-
 
     public static String compareValues(int playerOnePoints, int playerTwoPoints) {
         if(playerOnePoints > playerTwoPoints) {
@@ -151,5 +137,13 @@ public class GameScreen extends AppCompatActivity {
         else {
             return "Player Two";
         }
+    }
+
+    public void switchToEnd(View view) {
+        MainActivity.spotifyHelper.getmSpotifyAppRemote().getPlayerApi().pause();
+        MainActivity.spotifyHelper.getmSpotifyAppRemote().disconnect(MainActivity.spotifyHelper.getmSpotifyAppRemote());
+        Intent intent = new Intent(this, EndScreen.class);
+        intent.putExtra(Integer.toString(MainActivity.spotifyHelper.getP1Points()), (Integer.toString(MainActivity.spotifyHelper.getP2Points())));
+        startActivity(intent);
     }
 }

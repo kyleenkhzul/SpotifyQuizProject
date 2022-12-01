@@ -56,11 +56,11 @@ public class ImportURL extends AppCompatActivity {
                 });
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        SpotifyAppRemote.disconnect(MainActivity.spotifyHelper.getmSpotifyAppRemote());
-    }
+//    @Override
+////    protected void onStop() {
+////        super.onStop();
+////        SpotifyAppRemote.disconnect(MainActivity.spotifyHelper.getmSpotifyAppRemote());
+////    }
 
     public void switchScreens1(View view){
         EditText editText = findViewById(R.id.playlistLink);

@@ -28,15 +28,15 @@ public class EndScreen extends AppCompatActivity {
     }
 
     private void values(){
-        if(MainActivity.spotifyHelper.getP1Points() > MainActivity.spotifyHelper.getP2Points()){
+        if(RevealScreen.Player1Points > RevealScreen.Player2Points){
             play.setText("Player 1");
-            point.setText(MainActivity.spotifyHelper.getP1Points() + " Points!");
-        }else if(MainActivity.spotifyHelper.getP1Points() < MainActivity.spotifyHelper.getP2Points()){
+            point.setText(RevealScreen.Player1Points + " Points!");
+        }else if(RevealScreen.Player1Points < RevealScreen.Player2Points){
             play.setText("Player 2");
-            point.setText(MainActivity.spotifyHelper.getP2Points() + " Points!");
+            point.setText(RevealScreen.Player2Points + " Points!");
         }else{
             play.setText("Everybody");
-            point.setText(MainActivity.spotifyHelper.getP1Points() + " Points!");
+            point.setText(RevealScreen.Player1Points + " Points!");
         }
     }
 }
