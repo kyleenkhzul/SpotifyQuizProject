@@ -2,4 +2,5 @@
     <string name="app_name">SpotifyQuizProject</string>
     <string name="points">Points:</string>
     <string name="initial_points">0</string>
+    <string name = "instructions">Welcome to Audizzy! On the next screen, click start game, and a song will play. If neither one of you can name the song, then skip the song. If you can name the song, then press the guess button before your opponent does! On the next screen, the song will be revealed, and if you guessed correctly, add a point!</string>
 </resources>
