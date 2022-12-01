@@ -79,4 +79,11 @@ public class RevealScreen extends AppCompatActivity {
         intent.putExtra("P2Points", P2Points);
         startActivity(intent);
     }
+
+    public void switchToEnd(View view){
+        MainActivity.spotifyHelper.getmSpotifyAppRemote().getPlayerApi().pause();
+        Intent intent = new Intent(this, EndScreen.class);
+        startActivity(intent);
+    }
+
 }

@@ -11,6 +11,7 @@
         android:id="@+id/endButton"
         style="@style/ButtonStyleSmall"
         android:text="End Game"
+        android:onClick="switchToEnd"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,7 +64,7 @@
         android:id="@+id/skip"
         style="@style/ButtonStyleBig"
         android:onClick="skipSong"
-        android:text="Skip Song"
+        android:text="Next Song"
         app:layout_constraintBottom_toTopOf="@+id/guessButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

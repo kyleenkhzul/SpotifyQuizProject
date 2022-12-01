@@ -34,6 +34,9 @@ public class GameScreen extends AppCompatActivity {
             P1Points = bundle.getInt("P1Points");
             P2Points = bundle.getInt("P2Points");
         }
+
+        connected(PlayQuiz.text);
+
         TextView p1 = findViewById(R.id.points1);
         p1.setText(Integer.toString(P1Points));
 
@@ -124,7 +127,7 @@ public class GameScreen extends AppCompatActivity {
     }
 
     public void skipSong(View view){
-        MainActivity.spotifyHelper.getmSpotifyAppRemote().getPlayerApi().skipNext();
+        connected(PlayQuiz.text);
     }
 
     public void updatePointsOne(){
