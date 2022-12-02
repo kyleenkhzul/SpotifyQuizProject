@@ -23,7 +23,7 @@ public class GameScreen extends AppCompatActivity {
     public static String imageUri;
     public static String name;
     public static String artist;
-    public static Drawable trackCover;
+    public static ImageView trackCover;
 
     protected void onEvent(PlayerState playerState) {
         if(playerState.track != null) {
@@ -32,7 +32,7 @@ public class GameScreen extends AppCompatActivity {
                     .getImage(playerState.track.imageUri)
                     .setResultCallback(
                             bitmap -> {
-                                trackCover = new BitmapDrawable(getResources(), bitmap);
+                                trackCover = findViewById(R.id.songReveal);
                                 Log.d("rus", "Image Data: " + trackCover);
                             });
         }
@@ -44,6 +44,8 @@ public class GameScreen extends AppCompatActivity {
         setContentView(R.layout.activity_game_screen);
         Bundle bundle = getIntent().getExtras();
 
+        onEvent();
+        
         if(RevealScreen.count != 0){
             connected(PlayQuiz.text);
             P1Points = bundle.getInt("P1Points");
