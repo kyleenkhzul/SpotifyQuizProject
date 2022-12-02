@@ -1,17 +1,20 @@
 package com.example.spotifyquizproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.VelocityTrackerCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.spotify.android.appremote.api.ConnectionParams;
 import com.spotify.android.appremote.api.Connector;
 import com.spotify.android.appremote.api.SpotifyAppRemote;
+import com.spotify.protocol.types.PlayerState;
 import com.spotify.protocol.types.Track;
 
 public class GameScreen extends AppCompatActivity {
@@ -22,7 +25,19 @@ public class GameScreen extends AppCompatActivity {
     public static String imageUri;
     public static String name;
     public static String artist;
+    public static ImageView trackCover;
 
+    protected void onEvent(PlayerState playerState) {
+        if(playerState.track != null) {
+            MainActivity.spotifyHelper.getmSpotifyAppRemote()
+                    .getImagesApi()
+                    .getImage(playerState.track.imageUri)
+                    .setResultCallback(
+                            bitmap -> {
+                                trackCover.setImageBitmap(bitmap);
+                            });
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
