@@ -2,6 +2,8 @@ package com.example.spotifyquizproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +23,7 @@ public class GameScreen extends AppCompatActivity {
     public static String imageUri;
     public static String name;
     public static String artist;
-    public static ImageView trackCover;
+    public static Drawable trackCover;
 
     protected void onEvent(PlayerState playerState) {
         if(playerState.track != null) {
@@ -30,7 +32,8 @@ public class GameScreen extends AppCompatActivity {
                     .getImage(playerState.track.imageUri)
                     .setResultCallback(
                             bitmap -> {
-                                trackCover.setImageBitmap(bitmap);
+                                trackCover = new BitmapDrawable(getResources(), bitmap);
+                                Log.d("rus", "Image Data: " + trackCover);
                             });
         }
     }
