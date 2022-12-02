@@ -6,24 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-
-
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
-
-import com.spotify.android.appremote.api.ConnectionParams;
-import com.spotify.android.appremote.api.Connector;
-import com.spotify.android.appremote.api.SpotifyAppRemote;
-
-import com.spotify.protocol.client.Subscription;
-import com.spotify.protocol.types.PlayerState;
-
-import com.spotify.protocol.types.Track;
 
 public class MainActivity extends AppCompatActivity {
-
     public static SpotifyHelper spotifyHelper;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +21,11 @@ public class MainActivity extends AppCompatActivity {
         // get a reference to the EditText element in the xml page that is connected to this activity.
         // to this activity
         // extract the text
-
         /*
         Create an intent (envelope) by telling Android who the sender and receiver is
         then we need to fill teh intent and lastly we need to start the intent.
          */
-
         Intent intent = new Intent(this, ImportURL.class);
-
         startActivity(intent);
     }
-
-//
 }

@@ -1,17 +1,13 @@
 package com.example.spotifyquizproject;
 
 import static com.example.spotifyquizproject.ImportURL.spotURL;
-
-import android.os.Bundle;
 import android.util.Log;
-import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import com.spotify.android.appremote.api.ConnectionParams;
 import com.spotify.android.appremote.api.Connector;
 import com.spotify.android.appremote.api.SpotifyAppRemote;
 import com.spotify.protocol.types.ImageUri;
 import com.spotify.protocol.types.Track;
-import com.spotify.protocol.types.Uri;
 
 public class SpotifyHelper extends AppCompatActivity {
     private final String CLIENT_ID;

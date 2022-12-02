@@ -1,7 +1,6 @@
 package com.example.spotifyquizproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,11 +17,8 @@ public class PlayQuiz extends AppCompatActivity {
         text = bundle.getString("inputText");
     }
 
-
     public void switchToGame(View view){
         Intent intent = new Intent(this, GameScreen.class);
         startActivity(intent);
     }
-
-
 }

@@ -1,16 +1,12 @@
 package com.example.spotifyquizproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.VelocityTrackerCompat;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.spotify.android.appremote.api.ConnectionParams;
 import com.spotify.android.appremote.api.Connector;
 import com.spotify.android.appremote.api.SpotifyAppRemote;
@@ -50,14 +46,11 @@ public class GameScreen extends AppCompatActivity {
             P1Points = bundle.getInt("P1Points");
             P2Points = bundle.getInt("P2Points");
         }
-
-
         TextView p1 = findViewById(R.id.points1);
         p1.setText(Integer.toString(P1Points));
 
         TextView p2 = findViewById(R.id.points2);
         p2.setText(Integer.toString(P2Points));
-
     }
 
     @Override

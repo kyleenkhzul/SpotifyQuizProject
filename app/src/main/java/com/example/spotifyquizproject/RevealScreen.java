@@ -38,7 +38,8 @@ public class RevealScreen extends AppCompatActivity {
         TextView answer = findViewById(R.id.answer);
         answer.setText(GameScreen.name + " by " + GameScreen.artist);
 
-        GameScreen.trackCover = findViewById(R.id.songReveal);
+        ImageView image = findViewById(R.id.songReveal);
+        image.setImageBitmap(GameScreen.trackCover);
     }
 
     public void updatePlayerOne(View v){
