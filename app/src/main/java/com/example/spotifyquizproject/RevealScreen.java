@@ -5,23 +5,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import org.w3c.dom.Text;
-import com.spotify.protocol.types.ImageUri;
-import com.spotify.protocol.types.Track;
 import com.squareup.picasso.Picasso;
 
 public class RevealScreen extends AppCompatActivity {
     public static int Player1Points = 0;
     public static int Player2Points = 0;
     public static int count = 0;
+    private ImageView albumArtwork;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reveal_screen);
+
+        albumArtwork = findViewById(R.id.songReveal);
+
         TextView p1 = findViewById(R.id.points1);
         p1.setText(Integer.toString(Player1Points));
 
@@ -29,7 +29,6 @@ public class RevealScreen extends AppCompatActivity {
         p2.setText(Integer.toString(Player2Points));
 
         Log.d("points", "points" + MainActivity.spotifyHelper.getP1Points());
-
         Log.d("name", "name: " + GameScreen.name);
         Log.d("uri", "uri: " + GameScreen.imageUri);
 //        String uri = GameScreen.imageUri.substring(GameScreen.imageUri.indexOf("{") + 1, GameScreen.imageUri.indexOf("'"));
@@ -38,8 +37,7 @@ public class RevealScreen extends AppCompatActivity {
         TextView answer = findViewById(R.id.answer);
         answer.setText(GameScreen.name + " by " + GameScreen.artist);
 
-        ImageView image = findViewById(R.id.songReveal);
-        image.setImageBitmap(GameScreen.trackCover);
+        Picasso.get().load(GameScreen.imageUri).resize(300,250).into(albumArtwork);
     }
 
     public void updatePlayerOne(View v){

@@ -2,17 +2,14 @@ package com.example.spotifyquizproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.spotify.android.appremote.api.ConnectionParams;
 import com.spotify.android.appremote.api.Connector;
 import com.spotify.android.appremote.api.SpotifyAppRemote;
-import com.spotify.protocol.types.PlayerState;
 import com.spotify.protocol.types.Track;
 
 public class GameScreen extends AppCompatActivity {
@@ -23,20 +20,6 @@ public class GameScreen extends AppCompatActivity {
     public static String imageUri;
     public static String name;
     public static String artist;
-    public static Drawable trackCover;
-
-    protected void onEvent(PlayerState playerState) {
-        if(playerState.track != null) {
-            MainActivity.spotifyHelper.getmSpotifyAppRemote()
-                    .getImagesApi()
-                    .getImage(playerState.track.imageUri)
-                    .setResultCallback(
-                            bitmap -> {
-                                trackCover = new BitmapDrawable(getResources(), bitmap);
-                                Log.d("rus", "Image Data: " + trackCover);
-                            });
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +37,8 @@ public class GameScreen extends AppCompatActivity {
 
         TextView p2 = findViewById(R.id.points2);
         p2.setText(Integer.toString(P2Points));
+
+
     }
 
     @Override
@@ -112,7 +97,7 @@ public class GameScreen extends AppCompatActivity {
                     final Track track = playerState.track;
                     if (track != null) {
                         Log.d("MainActivity", track.name + " by " + track.artist.name);
-                        imageUri = track.imageUri.toString();
+                        imageUri = ("https://i.scdn.co/image/"+ track.imageUri.toString().substring(22, track.imageUri.toString().length()-2));
                         name = track.name;
                         artist = track.artist.name;
                     }
