@@ -20,7 +20,10 @@ public class RevealScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reveal_screen);
 
+        Intent intent = getIntent();
+        String uriToShow = intent.getStringExtra("uriToShow");
         albumArtwork = findViewById(R.id.songReveal);
+        Picasso.get().load(uriToShow).into(albumArtwork);
 
         TextView p1 = findViewById(R.id.points1);
         p1.setText(Integer.toString(Player1Points));
@@ -31,13 +34,12 @@ public class RevealScreen extends AppCompatActivity {
         Log.d("points", "points" + MainActivity.spotifyHelper.getP1Points());
         Log.d("name", "name: " + GameScreen.name);
         Log.d("uri", "uri: " + GameScreen.imageUri);
+        Log.d("uri", uriToShow);
 //        String uri = GameScreen.imageUri.substring(GameScreen.imageUri.indexOf("{") + 1, GameScreen.imageUri.indexOf("'"));
 //        Log.d("text", "text: " + uri);
 
         TextView answer = findViewById(R.id.answer);
         answer.setText(GameScreen.name + " by " + GameScreen.artist);
-
-        Picasso.get().load(GameScreen.imageUri).resize(300,250).into(albumArtwork);
     }
 
     public void updatePlayerOne(View v){
@@ -49,7 +51,7 @@ public class RevealScreen extends AppCompatActivity {
                 break;
             case R.id.playerOneDecrement:
 //                MainActivity.spotifyHelper.setP1Points(MainActivity.spotifyHelper.getP1Points() - 1);
-                Player2Points--;
+                Player1Points--;
                 break;
         }
 
@@ -71,7 +73,6 @@ public class RevealScreen extends AppCompatActivity {
         textView2.setText(Integer.toString(Player2Points));
     }
 
-
     public void switchBackToGame(View view){
         count++;
         Intent intent = new Intent(this, GameScreen.class);
@@ -79,6 +80,4 @@ public class RevealScreen extends AppCompatActivity {
         intent.putExtra("P2Points", Player2Points);
         startActivity(intent);
     }
-
-
 }

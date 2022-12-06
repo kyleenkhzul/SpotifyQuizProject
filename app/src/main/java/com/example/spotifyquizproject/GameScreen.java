@@ -2,7 +2,6 @@ package com.example.spotifyquizproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,29 +20,11 @@ public class GameScreen extends AppCompatActivity {
     public static String name;
     public static String artist;
 
-    public static ImageView trackCover;
-
-    protected void onEvent(PlayerState playerState) {
-        if(playerState.track != null) {
-            MainActivity.spotifyHelper.getmSpotifyAppRemote()
-                    .getImagesApi()
-                    .getImage(playerState.track.imageUri)
-                    .setResultCallback(
-                            bitmap -> {
-                                trackCover = findViewById(R.id.songReveal);
-                                Log.d("rus", "Image Data: " + trackCover);
-                            });
-        }
-    }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
         Bundle bundle = getIntent().getExtras();
-
-        onEvent();
         
         if(RevealScreen.count != 0){
             connected(PlayQuiz.text);
@@ -99,6 +80,8 @@ public class GameScreen extends AppCompatActivity {
         MainActivity.spotifyHelper.setP2Points(Integer.parseInt(textView2.getText().toString()));
 
         Intent intent = new Intent(this, RevealScreen.class);
+        intent.putExtra("uriToShow", getImageUri());
+
         startActivity(intent);
     }
 
@@ -159,5 +142,9 @@ public class GameScreen extends AppCompatActivity {
         Intent intent = new Intent(this, EndScreen.class);
         intent.putExtra(Integer.toString(MainActivity.spotifyHelper.getP1Points()), (Integer.toString(MainActivity.spotifyHelper.getP2Points())));
         startActivity(intent);
+    }
+
+    public static String getImageUri() {
+        return imageUri;
     }
 }

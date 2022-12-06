@@ -29,8 +29,8 @@
     <TextView
         android:id="@+id/instructions"
         style="@style/TextViewStyleSmall"
-        android:layout_width="295dp"
-        android:layout_height="251dp"
+        android:layout_width="300dp"
+        android:layout_height="325dp"
         android:text="@string/instructions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
