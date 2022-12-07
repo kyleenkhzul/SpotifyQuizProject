@@ -30,7 +30,7 @@
         android:id="@+id/instructions"
         style="@style/TextViewStyleSmall"
         android:layout_width="300dp"
-        android:layout_height="325dp"
+        android:layout_height="350dp"
         android:text="@string/instructions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -24,50 +24,50 @@
     <Button
         android:id="@+id/playerOneIncrement"
         style="@style/ButtonStyleSmall"
-        android:text="+"
         android:onClick="updatePlayerOne"
+        android:text="+"
         app:layout_constraintBottom_toTopOf="@+id/songReveal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PlayerOne"
-        app:layout_constraintVertical_bias="0.171" />
+        app:layout_constraintVertical_bias="0.483" />
 
     <Button
         android:id="@+id/playerOneDecrement"
         style="@style/ButtonStyleSmall"
-        android:text="-"
         android:onClick="updatePlayerOne"
+        android:text="-"
         app:layout_constraintBottom_toTopOf="@+id/songReveal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.778"
+        app:layout_constraintHorizontal_bias="0.823"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PlayerOne"
-        app:layout_constraintVertical_bias="0.169" />
+        app:layout_constraintVertical_bias="0.483" />
 
     <Button
         android:id="@+id/playerTwoIncrement"
         style="@style/ButtonStyleSmall"
-        android:text="+"
         android:onClick="updatePlayerTwo"
+        android:text="+"
         app:layout_constraintBottom_toTopOf="@+id/PlayerTwo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.707"
+        app:layout_constraintHorizontal_bias="0.823"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/songReveal"
-        app:layout_constraintVertical_bias="0.712" />
+        app:layout_constraintVertical_bias="0.7" />
 
     <Button
         android:id="@+id/playerTwoDecrement"
         style="@style/ButtonStyleSmall"
-        android:text="-"
         android:onClick="updatePlayerTwo"
+        android:text="-"
         app:layout_constraintBottom_toTopOf="@+id/PlayerTwo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/songReveal"
-        app:layout_constraintVertical_bias="0.722" />
+        app:layout_constraintVertical_bias="0.7" />
 
     <ImageView
         android:id="@+id/songReveal"
@@ -110,13 +110,12 @@
 
     <TextView
         android:id="@+id/answer"
-        android:layout_width="363dp"
-        android:layout_height="36dp"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
         android:gravity="center"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.718" />

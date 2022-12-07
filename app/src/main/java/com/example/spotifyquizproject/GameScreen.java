@@ -36,9 +36,26 @@ public class GameScreen extends AppCompatActivity {
 
         TextView p2 = findViewById(R.id.points2);
         p2.setText(Integer.toString(P2Points));
-
-
     }
+
+//    public static ImageView trackCover;
+//
+//    protected void onEvent(PlayerState playerState) {
+//        if(playerState.track != null) {
+//            MainActivity.spotifyHelper.getmSpotifyAppRemote()
+//                    .getImagesApi()
+//                    .getImage(playerState.track.imageUri)
+//                    .setResultCallback(
+//                            bitmap -> {
+//                                trackCover = findViewById(R.id.songReveal);
+//                                Log.d("rus", "Image Data: " + trackCover);
+//                            });
+//        }
+//    }
+    // old way to try and fetch and set an image equal. Did not work because bitmap could
+    // not be sent to an ImageView object. Realized this was Kotlin coding!
+
+
 
     @Override
     protected void onStart() {
